@@ -49,32 +49,39 @@ SELECT * FROM Employees;
 **3️⃣ Aggregate Functions (Most Asked)**
 
 **COUNT**
+
 SELECT COUNT(*) AS TotalEmployees
 FROM Employees;
 
 **SUM**
+
 SELECT SUM(Salary) AS TotalSalary
 FROM Employees;
 
 **AVG**
+
 SELECT AVG(Salary) AS AvgSalary
 FROM Employees;
 
 **MIN**
+
 SELECT MIN(Salary) AS MinSalary
 FROM Employees;
 
 
 **MAX**
+
 SELECT MAX(Salary) AS MaxSalary
 FROM Employees;
 
 **Aggregate with GROUP BY**
+
 SELECT Department, COUNT(*) AS EmpCount, AVG(Salary) AS AvgSalary
 FROM Employees
 GROUP BY Department;
 
 **HAVING (Filter Aggregates)**
+
 SELECT Department, COUNT(*) AS EmpCount
 FROM Employees
 GROUP BY Department

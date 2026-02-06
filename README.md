@@ -1,93 +1,78 @@
-# SQL Server README
+# SQL Server Cheat Sheet
 
-Welcome to the SQL Server repository! Below are key SQL concepts along with examples and usage notes.
+## Basic Commands
 
----
-
-## 1. Selecting Data
-
-### Query
+### Select
 ```sql
-SELECT * FROM Users;
+SELECT column1, column2 
+FROM table_name;
 ```
-### Usage Notes
-- Use `SELECT` to retrieve data from one or more tables.
-- Always specify fields instead of `*` in production for better performance.
+- **Usage Note**: Use `SELECT` to retrieve data from a database.
+- **When to Use**: When you need to view data in tables.
+- **How to Use**: Replace `column1`, `column2` with actual column names and `table_name` with your table.
 
----
-
-## 2. Inserting Data
-
-### Query
+### Insert
 ```sql
-INSERT INTO Users (Username, Email) VALUES ('john_doe', 'john@example.com');
+INSERT INTO table_name (column1, column2)
+VALUES (value1, value2);
 ```
-### Usage Notes
-- Ensure that you validate data before insertion to maintain database integrity.
+- **Usage Note**: Use `INSERT` to add new rows.
+- **When to Use**: When new data needs to be added.
+- **How to Use**: Provide the actual values for the columns.
 
----
-
-## 3. Updating Data
-
-### Query
+### Update
 ```sql
-UPDATE Users SET Email = 'john.doe@example.com' WHERE Username = 'john_doe';
+UPDATE table_name
+SET column1 = value1, column2 = value2
+WHERE condition;
 ```
-### Usage Notes
-- Always include a `WHERE` clause to avoid updating all records.
+- **Usage Note**: Use `UPDATE` to modify existing rows.
+- **When to Use**: When existing data requires changes.
+- **How to Use**: Specify the condition for the rows to be updated.
 
----
-
-## 4. Deleting Data
-
-### Query
+### Delete
 ```sql
-DELETE FROM Users WHERE Username = 'john_doe';
+DELETE FROM table_name
+WHERE condition;
 ```
-### Usage Notes
-- Be cautious with `DELETE` operations; consider using `TRUNCATE` if removing all records.
+- **Usage Note**: Use `DELETE` to remove rows.
+- **When to Use**: When specific data needs to be removed.
+- **How to Use**: Define a condition to specify which rows to delete.
 
----
+## Joins
 
-## 5. Creating a Table
-
-### Query
+### Inner Join
 ```sql
-CREATE TABLE Users (
-    UserID INT PRIMARY KEY,
-    Username VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) NOT NULL
-);
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
 ```
-### Usage Notes
-- Always define primary keys for data integrity and fast access.
+- **Usage Note**: Retrieves records with matching values.
+- **When to Use**: When you need data from multiple tables that are related.
+- **How to Use**: Ensure to match the columns for joining.
 
----
-
-## 6. Indexing
-
-### Query
+### Left Join
 ```sql
-CREATE INDEX idx_username ON Users (Username);
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
 ```
-### Usage Notes
-- Indexes can significantly speed up data retrieval but can slow down insert/update operations.
+- **Usage Note**: Retrieves all records from the left table and matched records from the right table.
+- **When to Use**: When you want all records from one table regardless of a match.
+- **How to Use**: Replace `columns` and set a proper condition.
 
----
+## Functions
 
-## 7. Joins
+### Aggregate Functions
+- **COUNT()**: Counts the number of rows.
+- **SUM()**: Calculates the sum of a numeric column.
+- **AVG()**: Returns the average value.
 
-### Query
-```sql
-SELECT Users.Username, Orders.OrderID
-FROM Users
-JOIN Orders ON Users.UserID = Orders.UserID;
-```
-### Usage Notes
-- Joins are essential for combining data from multiple tables based on a related column.
+### String Functions
+- **CONCAT()**: Joins two or more strings.
+- **LEN()**: Returns the length of a string.
 
----
-
-## Conclusion
-
-Feel free to contribute to this repository, and submit any enhancements or corrections!
+## Final Note
+Remember to always test your SQL queries in a safe environment before running them in production systems.

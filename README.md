@@ -46,34 +46,35 @@ WHERE EmpId = 1;
 SELECT * FROM Employees;
 
 
-3️⃣ Aggregate Functions (Most Asked)
-COUNT
+**3️⃣ Aggregate Functions (Most Asked)**
+
+**COUNT**
 SELECT COUNT(*) AS TotalEmployees
 FROM Employees;
 
-SUM
+**SUM**
 SELECT SUM(Salary) AS TotalSalary
 FROM Employees;
 
-AVG
+**AVG**
 SELECT AVG(Salary) AS AvgSalary
 FROM Employees;
 
-MIN
+**MIN**
 SELECT MIN(Salary) AS MinSalary
 FROM Employees;
 
 
-MAX
+**MAX**
 SELECT MAX(Salary) AS MaxSalary
 FROM Employees;
 
-Aggregate with GROUP BY
+**Aggregate with GROUP BY**
 SELECT Department, COUNT(*) AS EmpCount, AVG(Salary) AS AvgSalary
 FROM Employees
 GROUP BY Department;
 
-HAVING (Filter Aggregates)
+**HAVING (Filter Aggregates)**
 SELECT Department, COUNT(*) AS EmpCount
 FROM Employees
 GROUP BY Department
@@ -81,47 +82,55 @@ HAVING COUNT(*) > 5;
 
 
 
+**4️⃣ JOINS (Very Important)**
 
-4️⃣ JOINS (Very Important)
 Assume another table:
 CREATE TABLE Departments (
     DeptId INT PRIMARY KEY,
     DeptName VARCHAR(50)
 );
 ________________________________________
-INNER JOIN
+**INNER JOIN**
+
 👉 Returns matching records
+
 SELECT e.Name, d.DeptName
 FROM Employees e
 INNER JOIN Departments d
 ON e.Department = d.DeptName;
 ________________________________________
-LEFT JOIN
+**LEFT JOIN**
+
 👉 All from left + matched from right
+
 SELECT e.Name, d.DeptName
 FROM Employees e
 LEFT JOIN Departments d
 ON e.Department = d.DeptName;
 ________________________________________
-RIGHT JOIN
+**RIGHT JOIN**
+
 SELECT e.Name, d.DeptName
 FROM Employees e
 RIGHT JOIN Departments d
 ON e.Department = d.DeptName;
 ________________________________________
-FULL OUTER JOIN
+**FULL OUTER JOIN**
+
 SELECT e.Name, d.DeptName
 FROM Employees e
 FULL OUTER JOIN Departments d
 ON e.Department = d.DeptName;
 ________________________________________
-SELF JOIN
+**SELF JOIN**
+
 SELECT A.Name AS Employee, B.Name AS Manager
 FROM Employees A, Employees B
 WHERE A.EmpId = B.EmpId;
 
 
-5️⃣ Stored Procedure
+**5️⃣ Stored Procedure**
+
 Create Procedure
 CREATE PROCEDURE GetEmployeesByDept
     @DeptName VARCHAR(50)
@@ -134,6 +143,7 @@ END;
 Execute
 EXEC GetEmployeesByDept @DeptName = 'IT';
 ________________________________________
+
 Procedure with Insert
 CREATE PROCEDURE AddEmployee
     @Id INT,
@@ -145,16 +155,22 @@ BEGIN
     INSERT INTO Employees (EmpId, Name, Department, Salary)
     VALUES (@Id, @Name, @Dept, @Salary);
 END;
+
 ________________________________________
-6️⃣ Indexes
+
+**6️⃣ Indexes**
+
 Create Index
 CREATE INDEX idx_emp_name
 ON Employees(Name);
 Unique Index
 CREATE UNIQUE INDEX idx_emp_email
 ON Employees(Email);
+
 ________________________________________
-7️⃣ Constraints
+
+**7️⃣ Constraints**
+
 CREATE TABLE Users (
     Id INT PRIMARY KEY,
     Email VARCHAR(100) UNIQUE,
@@ -162,7 +178,8 @@ CREATE TABLE Users (
     Country VARCHAR(50) DEFAULT 'India'
 );
 ________________________________________
-8️⃣ Subqueries
+**8️⃣ Subqueries**
+
 Single Row
 SELECT *
 FROM Employees
@@ -176,7 +193,8 @@ WHERE Department IN (
     SELECT DeptName FROM Departments
 );
 ________________________________________
-9️⃣ Window Functions (Trending Interview Topic)
+**9️⃣ Window Functions (Trending Interview Topic)**
+
 ROW_NUMBER
 SELECT Name, Salary,
        ROW_NUMBER() OVER (ORDER BY Salary DESC) AS RankNo
@@ -190,7 +208,8 @@ SELECT Name, Salary,
        DENSE_RANK() OVER (ORDER BY Salary DESC) AS RankNo
 FROM Employees;
 ________________________________________
-🔟 Transactions
+**🔟 Transactions**
+
 BEGIN TRANSACTION;
 
 UPDATE Employees
@@ -203,14 +222,16 @@ COMMIT;
 -- If error
 ROLLBACK;
 ________________________________________
-1️⃣1️⃣ Views
+**1️⃣1️⃣ Views**
+
 CREATE VIEW IT_Employees AS
 SELECT Name, Salary
 FROM Employees
 WHERE Department = 'IT';
 SELECT * FROM IT_Employees;
 ________________________________________
-1️⃣2️⃣ Triggers
+**1️⃣2️⃣ Triggers**
+
 CREATE TRIGGER trg_after_insert
 ON Employees
 AFTER INSERT

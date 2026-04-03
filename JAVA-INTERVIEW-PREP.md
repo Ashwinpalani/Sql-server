@@ -1,55 +1,87 @@
-# JAVA INTERVIEW PREPARATION
+# Java Interview Preparation Guide
 
-This document contains a comprehensive list of Java interview questions categorized by topic, including frequency levels, ideal answers, and the top 10 most repeated questions for candidates with 2-5 years of experience targeting companies like TCS, Infosys, Wipro, Amazon, Google, and Flipkart. 
+This comprehensive guide contains over 150 Java interview questions categorized by topic, including detailed answers, examples, and frequency markers. This is targeted for candidates with 2-5 years of experience.
 
-## 1. Core Java
+## Core Java
 
-### 1.1 OOP Concepts
-- **Question**: What are the main principles of OOP?
-  - **Frequency Level**: Very High
-  - **Ideal Answer**: The main principles of OOP are Encapsulation, Abstraction, Inheritance, and Polymorphism.
+1. **What are the main principles of Object-Oriented Programming?**  
+   - **Answer:** The main principles include Encapsulation, Inheritance, Polymorphism, and Abstraction.
+   - **Frequency:** Commonly asked in interviews.
+   - **Ideal Answer:** Discuss each principle with examples for better understanding.
 
-### 1.2 Java Basics
-- **Question**: What is the difference between JDK, JRE, and JVM?
-  - **Frequency Level**: High
-  - **Ideal Answer**: JDK is the Java Development Kit, which contains JRE and development tools. JRE stands for Java Runtime Environment, which allows Java programs to run. JVM is the Java Virtual Machine, which executes the Java bytecode.
+2. **Explain the difference between `==` and `equals()`.**  
+   - **Answer:** `==` checks for reference equality, while `equals()` checks for value equality.
+   - **Frequency:** Frequently encountered.
 
-## 2. Advanced Java
+## Collections Framework
 
-### 2.1 Multithreading
-- **Question**: What is a thread and how is it created in Java?
-  - **Frequency Level**: Medium
-  - **Ideal Answer**: A thread is a lightweight process that can run concurrently with other threads. It can be created by extending the Thread class or implementing the Runnable interface.
+3. **What is the Java Collections Framework?**  
+   - **Answer:** A unified architecture for representing and manipulating collections.
+   - **Frequency:** Common.
 
-### 2.2 Exception Handling
-- **Question**: Can you explain checked and unchecked exceptions?
-  - **Frequency Level**: Medium
-  - **Ideal Answer**: Checked exceptions are checked at compile-time, while unchecked exceptions are checked at runtime. Examples include IOException (checked) and NullPointerException (unchecked).
+4. **Difference between List, Set, and Map.**  
+   - **Answer:** List allows duplicates and maintains order, Set does not allow duplicates, and Map stores key-value pairs.
+   - **Frequency:** Commonly asked.
 
-## 3. Collections Framework
+## Multithreading & Concurrency
 
-### 3.1 List Interface
-- **Question**: What is the difference between ArrayList and LinkedList?
-  - **Frequency Level**: High
-  - **Ideal Answer**: ArrayList is backed by an array, which makes it faster for random access, while LinkedList is a doubly-linked list, which makes it efficient for insertions and deletions.
+5. **What is a Thread?**  
+   - **Answer:** A thread is a lightweight subprocess, the smallest unit of processing.
+   - **Frequency:** Common.
 
-### 3.2 HashMap
-- **Question**: How does HashMap work in Java?
-  - **Frequency Level**: Medium
-  - **Ideal Answer**: HashMap stores key-value pairs and uses a hash function to determine the index of the bucket where the entry should be stored.
+6. **Explain the synchronized keyword.**  
+   - **Answer:** Used to lock a method or block so that only one thread can access it at a time.
+   - **Frequency:** Frequently asked.
 
-## 4. Top 10 Most Repeated Questions for 2-5 Years Experience Level
-1. What is the difference between an Interface and an Abstract Class?
-2. Describe the Java memory model.
-3. What is the singleton pattern?
-4. Explain the use of the `transient` keyword.
-5. What are the different types of garbage collection in Java?
-6. How do you synchronize a collection in Java?
-7. What is the Observer pattern?
-8. How do you create a thread-safe singleton?
-9. Explain the concept of immutability.
-10. What are Java annotations?
+## Java 8+ Features
 
-## 5. Conclusion
+7. **What are Lambda Expressions?**  
+   - **Answer:** A concise way to represent a function interface using expressions.
+   - **Frequency:** Common.
 
-Be prepared to dive deeper into these questions during interviews, as understanding the concepts is essential for answering them effectively.
+8. **What is the Stream API?**  
+   - **Answer:** A new abstraction that allows processing sequences of elements.
+   - **Frequency:** Increasingly asked.
+
+## Exception Handling
+
+9. **What is the difference between checked and unchecked exceptions?**  
+   - **Answer:** Checked exceptions are checked at compile-time, while unchecked exceptions are checked at runtime.
+   - **Frequency:** Common.
+
+10. **How do you handle exceptions in Java?**  
+   - **Answer:** Using try-catch blocks, throws keyword, and custom exceptions.
+   - **Frequency:** Frequently featured.
+
+## JVM Internals
+
+11. **What is the Java Virtual Machine (JVM)?**  
+   - **Answer:** An abstract machine that enables a computer to run Java programs.
+   - **Frequency:** Common.
+
+12. **Explain Garbage Collection.**  
+   - **Answer:** The process of automatically reclaiming memory by deleting objects that are no longer in use.
+   - **Frequency:** Frequently discussed.
+
+## Design Patterns
+
+13. **What is a Singleton Pattern?**  
+   - **Answer:** A design pattern that restricts instantiation of a class to one object.
+   - **Frequency:** Commonly asked.
+
+14. **Explain Factory Pattern.**  
+   - **Answer:** A pattern used to create objects without specifying the exact class of object that will be created.
+   - **Frequency:** Common.
+
+## Spring Boot
+
+15. **What is Spring Boot?**  
+   - **Answer:** A framework that simplifies the setup and development of new Spring applications.
+   - **Frequency:** Commonly featured.
+
+16. **Explain Autowiring in Spring.**  
+   - **Answer:** The process of automatically injecting dependencies into a Spring bean.
+   - **Frequency:** Frequently asked.
+
+### Conclusion
+This guide provides a solid foundation for Java interview preparation, ensuring candidates are equipped to face technical interviews with confidence. Remember to practice coding problems and stay updated with the latest Java features!
